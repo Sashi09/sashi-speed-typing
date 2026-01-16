@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Typing Analyzer - Minor Project</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-layout">
+    <div class="project-box">
+        <h2 style="text-align: center; margin-top: 0;">Speed Typing Analyzer</h2>
+        
+        <div class="setup-row">
+            <select id="diff-config" class="custom-select">
+                <option value="easy">Easy Level</option>
+                <option value="medium" selected>Level: Medium</option>
+                <option value="hard">Hard Level</option>
+            </select>
+            <select id="time-config" class="custom-select">
+                <option value="30">30 Seconds</option>
+                <option value="60" selected>1 Minute</option>
+            </select>
+        </div>
+
+        <div class="progress-track"><div id="progress-bar-fill" class="progress-fill"></div></div>
+
+        <div class="stats-grid">
+            <div class="stat-box"><label>Timer</label><span id="live-timer">60s</span></div>
+            <div class="stat-box"><label>WPM</label><span id="live-wpm">0</span></div>
+            <div class="stat-box"><label>Accuracy</label><span id="live-acc">100%</span></div>
+            <div class="stat-box"><label>Session Best</label><span id="best-wpm">0</span></div>
+        </div>
+
+        <div id="display-area"></div>
+        <textarea id="typing-box" class="type-input" placeholder="Start typing here..."></textarea>
+        
+        <div style="text-align: center;">
+            <button class="restart-btn" style="width: auto;" onclick="location.reload()">Reset Session</button>
+        </div>
+    </div>
+
+    <div id="cert-sidebar" class="certificate-panel">
+        <div id="pdf-content">
+            <h3 style="margin-top: 0; color: #58a6ff;">Typing Achievement</h3>
+            <p style="font-size: 12px; opacity: 0.8;">Semester Performance Verification</p>
+            <hr style="border: 0; border-top: 1px solid #30363d; margin: 15px 0;">
+            <p><strong>SPEED:</strong> <span id="cert-wpm">0</span> WPM</p>
+            <p><strong>ACCURACY:</strong> <span id="cert-acc">0%</span></p>
+            <p><strong>DIFFICULTY:</strong> <span id="cert-diff">MEDIUM</span></p>
+            <p style="font-size: 10px; margin-top: 20px;">System Timestamp: <span id="cert-time"></span></p>
+        </div>
+        <button class="download-btn" onclick="downloadPDF()">Download PDF Result</button>
+        <button class="restart-btn" onclick="location.reload()">Try Again</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
